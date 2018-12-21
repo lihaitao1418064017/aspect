@@ -4,11 +4,11 @@ spring:
         driver-class-name: com.mysql.jdbc.Driver
         druid:
             first:
-                jdbcUrl: jdbc:mysql://47.99.216.57:3306/annotation?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+                jdbcUrl: jdbc:mysql://localhost:3306/annotation?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
                 username: root
                 password: root
             second:
-                jdbcUrl: jdbc:mysql://localhost:3306/log?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+                jdbcUrl: jdbc:mysql://47.99.216.57:3306/log?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
                 username: root
                 password: root
             initial-size: 10
@@ -36,5 +36,5 @@ spring:
                         multi-statement-allow: true
     jpa:
       hibernate:
-        ddl-auto: update
+        ddl-auto: none
       show-sql: true

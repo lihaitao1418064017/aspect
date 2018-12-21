@@ -1,33 +1,28 @@
 package com.example.demo.entity;
 
 import lombok.Data;
+
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
- * @Description User:
+ * @Description LoginForm:
  * @Author LiHaitao
- * @Date 2018/12/19 14:03
+ * @Date 2018/12/21 13:43
  * @UpdateUser
  * @UpdateDescrip
  * @UpdateDate
  * @Version 1.0.0
  **/
-@Data
 @Entity
-@Table(name = "user")
-public class User implements Serializable {
+@Data
+@Table(name = "login_form")
+public class LoginForm {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
-    private Integer age;
-
-    private String profession;
-
     private String password;
-
-
 }

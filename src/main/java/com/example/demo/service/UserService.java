@@ -10,4 +10,8 @@ public interface UserService {
 
     User selectById(Long id);
 
+    User add(User user);
+
+    User findByName(String name);
+
 }

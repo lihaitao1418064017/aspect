@@ -34,7 +34,7 @@ public class  LogInfoServiceImpl implements LogInfoService {
         return logInfoDao.findById(id).get();
     }
 
-    @DataSource(name = DataSourceNames.SECOND)
+
     @Override
     public Long insert(LogInfo logInfo) {
         LogInfo save = logInfoDao.save(logInfo);

@@ -15,6 +15,7 @@ import java.util.Map;
 * @Version:        1.0.0
 */
 public class DynamicDataSource extends AbstractRoutingDataSource {
+
     private static final ThreadLocal<String> contextHolder = new ThreadLocal<>();
 
     public DynamicDataSource(DataSource defaultTargetDataSource, Map<Object, Object> targetDataSources) {
@@ -23,6 +24,10 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
         super.afterPropertiesSet();
     }
 
+    /**
+     * 根据key获取对应数据源
+     * @return
+     */
     @Override
     protected Object determineCurrentLookupKey() {
         return getDataSource();

@@ -8,7 +8,6 @@ import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -36,5 +35,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public User selectById(Long id) {
         return userDao.findById(id).get();
+    }
+
+    @DataSource(name = DataSourceNames.FIRST)
+    @Override
+    public User add(User user) {
+        return userDao.save(user);
+    }
+
+
+    @Override
+    public User findByName(String name) {
+        return userDao.findByName(name);
     }
 }

@@ -1,14 +1,17 @@
 package com.example.demo.controller;
 
 import com.example.demo.annotation.LogAnnotation;
+import com.example.demo.annotation.LoginMsg;
 import com.example.demo.datasources.DataSourceNames;
 import com.example.demo.datasources.annotation.DataSource;
+import com.example.demo.entity.LoginForm;
+import com.example.demo.entity.LoginMessage;
 import com.example.demo.entity.User;
+import com.example.demo.service.LoginFormService;
+import com.example.demo.service.LoginMessageService;
 import com.example.demo.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -26,8 +29,11 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-    @Resource
+    @Autowired
     private UserService userService;
+
+    @Autowired
+    private LoginFormService loginFormService;
 
 
     @LogAnnotation("查询所有用户")
@@ -36,10 +42,24 @@ public class UserController {
         return userService.selectAll();
     }
 
-
     @LogAnnotation("FindUserById")
     @GetMapping("/get/{id}")
     public User getUser(@PathVariable Long id){
         return userService.selectById(id);
     }
+
+
+    @PostMapping("/register")
+    public boolean register(@RequestBody User user){
+        User user1= userService.add(user);
+        LoginForm loginForm=new LoginForm();
+        loginForm.setName(user.getName());
+        loginForm.setPassword(user.getPassword());
+        LoginForm loginForm1=loginFormService.add(loginForm);
+        if (user1!=null&&loginForm1!=null) {
+            return true;
+        }
+        return false;
+    }
+
 }
