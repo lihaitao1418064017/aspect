@@ -30,7 +30,7 @@ import java.util.Date;
  **/
 @Component
 @Aspect
-public class LogMsgAspect {
+public class LoginMsgAspect {
 
     @Autowired
     private LoginMessageService loginMessageService;

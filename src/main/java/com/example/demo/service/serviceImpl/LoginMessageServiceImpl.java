@@ -1,8 +1,6 @@
 package com.example.demo.service.serviceImpl;
 
 import com.example.demo.dao.LoginMessageDao;
-import com.example.demo.datasources.DataSourceNames;
-import com.example.demo.datasources.annotation.DataSource;
 import com.example.demo.entity.LoginMessage;
 import com.example.demo.service.LoginMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,19 +21,19 @@ public class LoginMessageServiceImpl implements LoginMessageService {
     private LoginMessageDao loginMessageDao;
 
 
-    @DataSource(name = DataSourceNames.SECOND)
+//    @DataSource(name = DataSourceNames.SECOND)
     @Override
     public LoginMessage registerMessage(LoginMessage loginMessage) {
         return loginMessageDao.save(loginMessage);
     }
 
-    @DataSource(name = DataSourceNames.SECOND)
+//    @DataSource(name = DataSourceNames.SECOND)
     @Override
     public LoginMessage updateLoginMessage(LoginMessage loginMessage) {
         return loginMessageDao.save(loginMessage);
     }
 
-    @DataSource(name = DataSourceNames.SECOND)
+//    @DataSource(name = DataSourceNames.SECOND)
     @Override
     public LoginMessage findByName(String name) {
         return loginMessageDao.findByUsername(name);

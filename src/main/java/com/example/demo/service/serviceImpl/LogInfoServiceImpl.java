@@ -1,8 +1,6 @@
 package com.example.demo.service.serviceImpl;
 
 import com.example.demo.dao.LogInfoDao;
-import com.example.demo.datasources.DataSourceNames;
-import com.example.demo.datasources.annotation.DataSource;
 import com.example.demo.entity.LogInfo;
 import com.example.demo.service.LogInfoService;
 import org.aspectj.lang.annotation.Aspect;

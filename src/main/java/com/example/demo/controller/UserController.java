@@ -2,8 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.annotation.LogAnnotation;
 import com.example.demo.annotation.LoginMsg;
-import com.example.demo.datasources.DataSourceNames;
-import com.example.demo.datasources.annotation.DataSource;
+import com.example.demo.annotation.RequestAnnotation;
 import com.example.demo.entity.LoginForm;
 import com.example.demo.entity.LoginMessage;
 import com.example.demo.entity.User;
@@ -26,6 +25,7 @@ import java.util.List;
  * @Version 1.0.0
  **/
 @RestController
+
 @RequestMapping("/user")
 public class UserController {
 
@@ -35,13 +35,14 @@ public class UserController {
     @Autowired
     private LoginFormService loginFormService;
 
-
+    @RequestAnnotation("user模块请求")
     @LogAnnotation("查询所有用户")
     @GetMapping("/getAll")
     public List<User> getAllUser(){
         return userService.selectAll();
     }
 
+    @RequestAnnotation("user模块请求")
     @LogAnnotation("FindUserById")
     @GetMapping("/get/{id}")
     public User getUser(@PathVariable Long id){
@@ -50,16 +51,9 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public boolean register(@RequestBody User user){
-        User user1= userService.add(user);
-        LoginForm loginForm=new LoginForm();
-        loginForm.setName(user.getName());
-        loginForm.setPassword(user.getPassword());
-        LoginForm loginForm1=loginFormService.add(loginForm);
-        if (user1!=null&&loginForm1!=null) {
-            return true;
-        }
-        return false;
+    @LogAnnotation("注冊用戶")
+    public User register(@RequestBody User user){
+        return userService.add(user);
     }
 
 }

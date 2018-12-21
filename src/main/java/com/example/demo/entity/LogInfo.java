@@ -1,7 +1,7 @@
 package com.example.demo.entity;
 
-import com.example.demo.datasources.DataSourceNames;
-import com.example.demo.datasources.annotation.DataSource;
+//import com.example.demo.datasources.DataSourceNames;
+//import com.example.demo.datasources.annotation.DataSource;
 import lombok.Data;
 
 import javax.persistence.*;
