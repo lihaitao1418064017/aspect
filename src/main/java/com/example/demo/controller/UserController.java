@@ -32,8 +32,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private LoginFormService loginFormService;
+
 
     @RequestAnnotation("user模块请求")
     @LogAnnotation("查询所有用户")
@@ -43,13 +42,13 @@ public class UserController {
     }
 
     @RequestAnnotation("user模块请求")
-    @LogAnnotation("FindUserById")
+    @LogAnnotation("通过id查找用户")
     @GetMapping("/get/{id}")
     public User getUser(@PathVariable Long id){
         return userService.selectById(id);
     }
 
-
+    @RequestAnnotation("user模块请求")
     @PostMapping("/register")
     @LogAnnotation("注冊用戶")
     public User register(@RequestBody User user){

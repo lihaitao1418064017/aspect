@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 //@Import({DynamicDataSourceConfig.class})
 @EnableAspectJAutoProxy
-@EnableAutoConfiguration//
-@ComponentScan("com.example.demo")
 public class Application extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {

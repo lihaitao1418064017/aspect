@@ -87,7 +87,7 @@ public class RequestAspect {
 
     @AfterThrowing(value = "logRequest()",throwing = "exception")
     public void afterThrowingAdvice(JoinPoint joinPoint,NullPointerException exception){
-        logger.info("- - - - - 后置异常通知 - - - - -");
+        logger.info("- - - - - 后置异常通知 - - - - -{}",exception.getMessage());
     }
 
 
